@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 public class DocumentController implements DocumentControllerApi {
 
@@ -27,7 +29,7 @@ public class DocumentController implements DocumentControllerApi {
     }
 
     @Override
-    public Document persistDocument(DocumentIn documentIn) {
+    public Document persistDocument(DocumentIn documentIn) throws IOException {
         return documentService.persistDocument(Mapper.fromIn(documentIn));
     }
 

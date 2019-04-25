@@ -9,6 +9,7 @@ import java.time.LocalTime;
 public class Mapper {
     public static Document fromIn(DocumentIn documentIn) {
         return new Document()
+            .setId(documentIn.getId())
             .setText(documentIn.getText())
             .setTitle(documentIn.getTitle())
             .setDate(LocalDate.now().toString())

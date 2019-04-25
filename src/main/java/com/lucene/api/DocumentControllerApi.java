@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @Api
 @RequestMapping("/document")
@@ -24,7 +25,7 @@ public interface DocumentControllerApi {
 
     @ApiOperation("doc save")
     @PostMapping("/")
-    Document persistDocument(@RequestBody @Valid DocumentIn document);
+    Document persistDocument(@RequestBody @Valid DocumentIn document) throws IOException;
     
     @ApiOperation("doc delete")
     @DeleteMapping("/{id}")
