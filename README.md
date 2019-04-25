@@ -22,3 +22,6 @@ POSTGRES_PORT           - default 5432
 POSTGRES_DB             - default lucene
 POSTGRES_USERNAME       - default postgres
 POSTGRES_PASSWORD       - default postgres
+
+build with maven:
+mvn clean install

@@ -9,3 +9,13 @@ spring:
   flyway:
     schemas: public
     enabled: true
+    
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  data:
+    rest:
+      basePath: /api
