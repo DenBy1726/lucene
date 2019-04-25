@@ -15,3 +15,10 @@
 
 Create docker database instance (for local run):
 docker run --name lucene --env POSTGRES_DB=lucene --env POSTGRES_USER=postgres --env POSTGRES_PASSWORD=postgres -p 5432:5432 --restart=always -d postgres:9.6.10
+
+setup environment variables or fallback to default:
+POSTGRES_HOST           - default localhost
+POSTGRES_PORT           - default 5432
+POSTGRES_DB             - default lucene
+POSTGRES_USERNAME       - default postgres
+POSTGRES_PASSWORD       - default postgres
