@@ -2,10 +2,9 @@
   "name": "ar",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack -p --colors  --config webpack.prod.js && node build-sw",
-    "start": "webpack-dev-server --hot --color --progress --config webpack.dev.js && node build-sw",
-    "startP": "webpack-dev-server -p --hot --color --progress --config webpack.devprod.js && node build-sw",
-    "sw": "node build-sw"
+    "build": "webpack -p --colors  --config webpack.prod.js",
+    "start": "webpack-dev-server --hot --color --progress --config webpack.dev.js",
+    "startP": "webpack-dev-server -p --hot --color --progress --config webpack.devprod.js"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -51,10 +50,12 @@
     "react": "^16.8.4",
     "react-dom": "16.8.4",
     "react-redux": "5.0.6",
+    "react-responsive": "^6.1.1",
     "react-router-dom": "^4.2.2",
     "redux": "3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
+    "swagger-ui": "^3.22.1",
     "webpack-merge-and-include-globally": "^2.1.16"
   }
 }

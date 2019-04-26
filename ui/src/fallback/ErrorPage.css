@@ -1,0 +1,54 @@
+.notFound {
+    background-color: #2F3242;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+
+   
+}
+
+.notFound > div {
+    margin-top: 18%;
+}
+
+.notFound .message-box {
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.notFound .message-box h1 {
+    font-size: 60px;
+    line-height: 46px;
+    color: #FFF;
+}
+
+.notFound .message-box p {
+    font-size: 20px;
+    line-height: 46px;
+    color: #FFF;
+}
+
+
+@keyframes float {
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@media (max-width: 450px) {
+
+    .notFound {
+        background-color: #2F3242;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+}

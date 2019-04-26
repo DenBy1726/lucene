@@ -58,7 +58,7 @@ module.exports = {
             }
         ]
     },
-    devtool: false,
+    devtool: "eval-source-map",
     plugins: [
         new ExtractTextPlugin({
             filename: 'bundle.css',

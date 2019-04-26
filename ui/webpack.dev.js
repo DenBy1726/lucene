@@ -3,8 +3,6 @@ const common = require('./webpack.common.js');
 const webpack = require('webpack');
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const UglifyJS = require('uglify-es-webpack-plugin');
-var CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = merge(common, {
     output: {
@@ -27,6 +25,10 @@ module.exports = merge(common, {
         compress: true,
         proxy: {
             '/api/**': {
+                target: 'http://localhost:8080',
+                secure: false
+            },
+            '/v2/api-docs': {
                 target: 'http://localhost:8080',
                 secure: false
             }
