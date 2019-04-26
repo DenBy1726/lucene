@@ -25,3 +25,9 @@ POSTGRES_PASSWORD       - default postgres
 
 build with maven:
 mvn clean install
+
+build frontend:
+`npm i`
+run frontend
+`npm start`
+go to localhost:3000
