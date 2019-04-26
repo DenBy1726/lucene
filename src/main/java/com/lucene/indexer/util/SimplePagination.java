@@ -30,7 +30,7 @@ public class SimplePagination implements Pageable {
 
     @Override
     public Sort getSort() {
-        return null;
+        return Sort.unsorted();
     }
 
     @Override
