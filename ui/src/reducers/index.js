@@ -1,9 +1,9 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router';
 
-const appReducer = combineReducers({
+import document from './document';
 
+export default (history) => combineReducers({
+    router: connectRouter(history),
+    document
 });
-
-export default (state, action) => {
-    return appReducer(state, action);
-}

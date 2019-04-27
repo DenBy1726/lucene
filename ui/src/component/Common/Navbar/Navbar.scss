@@ -1,0 +1,11 @@
+nav.menuBar {
+    display: flex;
+    .search {
+        display: flex;
+        align-items: center;
+    }
+}
+
+nav.menuBar > div {
+    padding-top: 10px;
+}

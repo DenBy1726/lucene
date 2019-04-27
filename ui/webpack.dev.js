@@ -24,9 +24,13 @@ module.exports = merge(common, {
         historyApiFallback: true,
         compress: true,
         proxy: {
-            '/api/**': {
+            '/document/': {
                 target: 'http://localhost:8080',
-                secure: false
+                secure: false,
+                changeOrigin: true,
+                pathRewrite: {
+                    '/api': ''
+                }
             },
             '/v2/api-docs': {
                 target: 'http://localhost:8080',

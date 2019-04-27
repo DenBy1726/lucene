@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
 import LeftMenu from './LeftMenu'
-import {Drawer, Avatar, Icon} from 'antd';
+import {Drawer, Icon, Input} from 'antd';
 import {withRouter} from "react-router-dom";
-import Image from "../Common/Image";
+import Image from "../../Common/Image";
+
+import './Navbar.scss';
+
+const Search = Input.Search;
 
 class Navbar extends Component {
     
     state = {
         current: '/',
-        visible: false
+        visible: false,
+        searchLine: ''
     };
     
     showDrawer = () => {
@@ -27,6 +32,15 @@ class Navbar extends Component {
         this.onClose();
         this.props.history.push(e.key);
     };
+
+    handleSearch = (query = '') => {
+        const { document, history, fetchDocuments } = this.props;
+
+        history.push('/');
+        fetchDocuments({query, size: document.size, page: 1});
+    }
+
+    handleChangeSearchLine = ({ target }) => this.setState({searchLine: target.value});
 
 
     render() {
@@ -51,6 +65,15 @@ class Navbar extends Component {
                         <LeftMenu onClick={this.handleClick}/>
                     </Drawer>
 
+                </div>
+                <div className="search">
+                    <Search
+                        value={this.state.searchLine}
+                        onChange={this.handleChangeSearchLine}
+                        placeholder="Search"
+                        onSearch={value => this.handleSearch(value)}
+                        style={{ width: 300 }}
+                    />
                 </div>
             </nav>
         );
