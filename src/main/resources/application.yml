@@ -16,6 +16,6 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-  data:
-    rest:
-      basePath: /api
+server:
+  servlet:
+    context-path: /api
