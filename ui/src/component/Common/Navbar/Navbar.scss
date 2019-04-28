@@ -9,3 +9,9 @@ nav.menuBar {
 nav.menuBar > div {
     padding-top: 10px;
 }
+
+.menuCon {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

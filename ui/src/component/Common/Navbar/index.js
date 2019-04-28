@@ -53,6 +53,15 @@ class Navbar extends Component {
                     <div className="leftMenu">
                         <LeftMenu onClick={this.handleClick}/>
                     </div>
+                    <div className="search">
+                        <Search
+                            value={this.state.searchLine}
+                            onChange={this.handleChangeSearchLine}
+                            placeholder="Search"
+                            onSearch={value => this.handleSearch(value)}
+                            style={{ width: 300 }}
+                        />
+                    </div>
                     <div className="barsMenu">
                         <Icon type="menu-unfold" onClick={this.showDrawer}/>
                     </div>
@@ -65,15 +74,6 @@ class Navbar extends Component {
                         <LeftMenu onClick={this.handleClick}/>
                     </Drawer>
 
-                </div>
-                <div className="search">
-                    <Search
-                        value={this.state.searchLine}
-                        onChange={this.handleChangeSearchLine}
-                        placeholder="Search"
-                        onSearch={value => this.handleSearch(value)}
-                        style={{ width: 300 }}
-                    />
                 </div>
             </nav>
         );
