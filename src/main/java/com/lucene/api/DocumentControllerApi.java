@@ -1,5 +1,6 @@
 package com.lucene.api;
 
+import com.lucene.api.util.ApiPageable;
 import com.lucene.document.domain.Document;
 import com.lucene.document.domain.DocumentIn;
 import com.lucene.document.domain.QueryIn;
@@ -15,7 +16,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 
 @Api
-@RequestMapping("/document")
+@RequestMapping("/api/document")
 public interface DocumentControllerApi {
 
     @ApiOperation("doc by id")
@@ -24,6 +25,7 @@ public interface DocumentControllerApi {
 
     @ApiOperation("doc page")
     @GetMapping("/")
+    @ApiPageable
     Page<Document> getDocuments(Pageable pageable);
 
     @ApiOperation("doc save")
@@ -36,6 +38,7 @@ public interface DocumentControllerApi {
 
     @ApiOperation("find relevant")
     @GetMapping("/query={query}")
+    @ApiPageable
     Page<QueryOut> findDocuments(@PathVariable("query") QueryIn searchIn, Pageable pageable) throws IOException, ParseException;
 
 }

@@ -3,6 +3,7 @@ package com.lucene.config;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Pageable;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -28,6 +29,7 @@ public class SwaggerConfig {
             .paths(PathSelectors.any())
             .build()
             .directModelSubstitute(ZoneId.class, String.class)
+            .ignoredParameterTypes(Pageable.class)
             .apiInfo(apiInfo());
     }
 }
