@@ -7,9 +7,6 @@ const menu = [
     <Menu.Item key="/">
         <div className="menuPoint"><Icon type="home"/>Главная страница</div>
     </Menu.Item>,
-    <Menu.Item key="database">
-        <div className="menuPoint"><Icon type="database"/>База данных</div>
-    </Menu.Item>,
     <Menu.Item key="api">
         <div className="menuPoint"><Icon type="api"/>API</div>
     </Menu.Item>];

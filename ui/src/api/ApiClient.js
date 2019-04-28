@@ -53,7 +53,7 @@ export default class ApiClient {
       method,
       // mode: 'no-cors',
       headers: {
-        Accept: 'application/json',
+        Accept: '*/*',
         // Accept: 'application/json'
       }
     }
@@ -73,7 +73,7 @@ export default class ApiClient {
     }
     console.log(`${this.prefix}/${url}`, init)
 
-    return fetch(`${url}`, init).then(res => {
+    return fetch(url, init).then(res => {
       status = res.status;
       if (status === 204) {
         return status;

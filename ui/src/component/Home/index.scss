@@ -1,0 +1,16 @@
+.homePage {
+    // scroll-behavior: smooth;
+    .searchItem {
+        width: 50%;
+        margin-left: 5%;
+        margin-top: 1%;
+    }
+    .title:hover {
+        text-decoration: underline;
+    }
+    .ant-pagination {
+        margin-left: 5%;
+        margin-top: 1%;
+        margin-bottom: 5%;
+    }
+}

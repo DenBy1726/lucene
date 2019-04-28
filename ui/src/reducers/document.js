@@ -5,7 +5,7 @@ import {
     FETCH_DOCUMENT_START,
     FETCH_DOCUMENT_SUCCESS,
     FETCH_DOCUMENT_FAIL,
-    // CLEAR_CURRENT_STATE,
+    CLEAR_CURRENT_STATE,
     // CLEAR_ITEMS_STATE
   } from '../actions/document';
   
@@ -15,8 +15,9 @@ import {
     items: [],
     currentItem: {},
     page: 1,
-    size: 250,
+    size: 10,
     total: 0,
+    query: ''
   } 
   
   function document(state = initialState, { type, data }) {
@@ -33,8 +34,9 @@ import {
           loading: false,
           items: data.content,
           size: data.size,
-          total: data.totalPages,
+          total: data.totalElements,
           page: data.number,
+          query: data.query || ''
         };
       case FETCH_DOCUMENTS_FAIL:
         return {
@@ -52,7 +54,7 @@ import {
         return {
           ...state,
           loading: false,
-          currentItem: data.news,
+          currentItem: data,
         };
       case FETCH_DOCUMENT_FAIL:
         return {
@@ -60,13 +62,11 @@ import {
           loading: false,
           loadingFailed: true,
         };
-    //   case CLEAR_CURRENT_STATE:
-    //     return {
-    //       ...state,
-    //       prevItem: {},
-    //       currentItem: {},
-    //       nextItem: {}
-    //     }
+      case CLEAR_CURRENT_STATE:
+        return {
+          ...state,
+          currentItem: {},
+        }
     //   case CLEAR_ITEMS_STATE:
     //     return {
     //       ...state,

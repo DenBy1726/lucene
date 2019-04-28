@@ -50,17 +50,17 @@ class Navbar extends Component {
                     <Image size={64} src={"/img/icons/favicon.png"}/>
                 </div>
                 <div className="menuCon">
-                    <div className="leftMenu">
-                        <LeftMenu onClick={this.handleClick}/>
-                    </div>
                     <div className="search">
                         <Search
                             value={this.state.searchLine}
                             onChange={this.handleChangeSearchLine}
-                            placeholder="Search"
+                            placeholder="Поищи тут что-нибудь"
                             onSearch={value => this.handleSearch(value)}
                             style={{ width: 300 }}
                         />
+                    </div>
+                    <div className="leftMenu">
+                        <LeftMenu onClick={this.handleClick}/>
                     </div>
                     <div className="barsMenu">
                         <Icon type="menu-unfold" onClick={this.showDrawer}/>
