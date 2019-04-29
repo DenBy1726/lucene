@@ -71,13 +71,13 @@ public class IndexerService {
         indexWriter.updateDocument(idTerm, newDoc);
     }
 
-    public List<Document> findDocument(String queryString, int offset, int limit) throws IOException, ParseException {
+    public Page<Document> findDocument(String queryString, int offset, int limit) throws IOException, ParseException {
         IndexSearcher searcher = searcherManager.acquire();
         searcher.setSimilarity(similarity);
 
         Query query = new QueryParser(TEXT, analyzer).parse(queryString);
-        ScoreDoc[] scores = searcher.search(query, offset + limit).scoreDocs;
-
+        ScoreDoc[] scores = searcher.search(query, 1000).scoreDocs;
+        
         List<Document> docs = Arrays.stream(scores).skip(offset).limit(limit).map(x -> {
             try {
                 Document document = searcher.doc(x.doc);
@@ -91,8 +91,7 @@ public class IndexerService {
         
         searcherManager.release(searcher);
 
-        return docs;
-
+        return new PageImpl<>(docs, new SimplePagination(offset,limit), scores.length);
     }
 
 

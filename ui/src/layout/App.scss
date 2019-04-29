@@ -1,69 +1,79 @@
-.menuBar{
+.menuBar {
     padding: 0 20px;
     border-bottom: solid 1px #e8e8e8;
     box-shadow: 0 0 30px #f3f1f1;
 }
-.logo{
-    width: 150px;
-    // float: left;
-}
-.logo a{
+
+.logo a {
     display: inline-block;
     font-size: 20px;
     padding: 19px 20px;
     text-transform: capitalize;
 }
 
-.menuCon .ant-menu-submenu-title{
+.menuCon .ant-menu-submenu-title {
     padding: 10px 20px;
 }
-.menuCon .ant-menu-item a, .menuCon .ant-menu-submenu-title a{
+
+.menuCon .ant-menu-item a, .menuCon .ant-menu-submenu-title a {
     padding: 10px 15px;
 }
-.menuCon .ant-menu-horizontal{
+
+.menuCon .ant-menu-horizontal {
     border-bottom: none;
 }
-.barsMenu{
+
+.barsMenu {
     display: none;
     float: right;
     width: 50px;
     height: 50px;
 }
+
 .barsMenu > i {
     font-size: 50px;
     padding: 5px;
 }
 
-.barsBtn:after{
+.barsBtn:after {
     top: auto;
     bottom: -6px;
 }
-.ant-drawer-body{
+
+.ant-drawer-body {
     padding: 0;
 }
-.ant-drawer-body .ant-menu-horizontal > .ant-menu-item, .ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu{
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item, .ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu {
     display: inline-block;
     width: 100%;
 }
-.ant-drawer-body .ant-menu-horizontal{
+
+.ant-drawer-body .ant-menu-horizontal {
     border-bottom: none;
 }
-.ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover{
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover {
     border-bottom-color: transparent;
 }
 
-@media(max-width: 767px){
-    .barsMenu{
+@media(max-width: 767px) {
+    .barsMenu {
         display: inline-block;
+        position: relative;
+        bottom: 7px;
     }
-    .leftMenu,.rightMenu{
+    .leftMenu, .rightMenu {
         display: none;
     }
     .logo {
-        display:none;
+        display: none;
     }
-    .menuCon .ant-menu-item, .menuCon .ant-menu-submenu-title{
+    .menuCon .ant-menu-item, .menuCon .ant-menu-submenu-title {
         padding: 1px 20px;
+    }
+    nav.menuBar .search {
+        width: 100%;
     }
 }
 
@@ -72,9 +82,19 @@
         display: flex;
         flex-direction: column;
     }
+    nav.menuBar .search {
+        max-width: 600px;
+        margin: 10px 0 10px 10px;
+    }
 }
 
 .leftMenu .ant-menu-item .anticon {
     margin-right: 0;
     font-size: 30px;
+}
+
+.anticon-search > svg {
+    color: #4285f4;
+    height: 24px;
+    width: 24px;
 }

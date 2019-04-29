@@ -1,9 +1,10 @@
 import React, {Fragment} from "react"
 import {Button, Icon} from "antd";
-import {withRouter} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import { goBack } from 'connected-react-router'
+import {connect} from "react-redux";
 
-const Page404 = ({history}) => {
+const Page404 = ({goBack}) => {
     return (
         <ErrorPage image="/img/error/404.svg" code="404" text="Страница не найдена">
             <div style={{
@@ -11,7 +12,7 @@ const Page404 = ({history}) => {
                 justifyContent: "space-around",
                 flexWrap: "wrap"
             }}>
-                <Button style={{margin: "5px", flexGrow: 1}} type="primary" onClick={() => history.goBack()}>
+                <Button style={{margin: "5px", flexGrow: 1}} type="primary" onClick={() =>goBack()}>
                     <Icon type="left"/>Назад
                 </Button>
                 <Button style={{margin: "5px", flexGrow: 2}} type="primary"
@@ -30,4 +31,5 @@ const Page404 = ({history}) => {
     )
 };
 
-export default withRouter(Page404)
+
+export default connect(null, { goBack })(Page404);

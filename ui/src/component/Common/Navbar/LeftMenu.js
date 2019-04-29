@@ -9,6 +9,9 @@ const menu = [
     </Menu.Item>,
     <Menu.Item key="api">
         <div className="menuPoint"><Icon type="api"/>API</div>
+    </Menu.Item>,
+    <Menu.Item key="help">
+        <div className="menuPoint"><Icon type="question-circle"/>Справка</div>
     </Menu.Item>];
 
 const LeftMenu = ({onClick}) => (

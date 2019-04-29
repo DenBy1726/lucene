@@ -64,13 +64,13 @@ public class DocumentService {
     }
 
     public Page<QueryOut> findDocuments(String query, Pageable pageable) throws IOException, ParseException {
-        List<org.apache.lucene.document.Document> pages = indexerService.findDocument(query, (int) pageable.getOffset(), pageable.getPageSize());
+        Page<org.apache.lucene.document.Document> pages = indexerService.findDocument(query, (int) pageable.getOffset(), pageable.getPageSize());
         List<QueryOut> documents = pages.stream().map(x -> {
             Document document = getDocumentById(Long.valueOf(x.get(IndexerService.ID)));
             double rank = Double.parseDouble(x.get(IndexerService.RANK));
             return new QueryOut().setDocument(document).setRank(rank);
         }).collect(Collectors.toList());
-        return new PageImpl<>(documents, new SimplePagination((int)pageable.getOffset(),pageable.getPageSize()), pages.size());
+        return new PageImpl<>(documents, pages.getPageable(), pages.getTotalElements());
     }
 
 }

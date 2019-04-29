@@ -1,52 +1,65 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import Dotdotdot from 'react-dotdotdot';
-import { Link } from 'react-router-dom';
-import { Pagination } from 'antd';
-import { Card } from 'antd';
+import {Link} from 'react-router-dom';
+import {Empty, Pagination} from 'antd';
+import {Card} from 'antd';
+import {push} from 'connected-react-router'
 
 import './index.scss';
+import {connect} from "react-redux";
 
-export default class Home extends Component {
+class Home extends Component {
 
     handleChangePage = (page) => {
-        const { size, query } = this.props.documents;
+        const {size, query} = this.props.documents;
 
         if (query.length !== 0) {
             this.props.fetchDocuments({query, page, size});
         } else {
-            this.props.fetchDocumentsOnStart({ page, size });
+            this.props.fetchDocumentsOnStart({page, size});
         }
         window.scrollTo(0, 0);
-    }
+    };
 
-    onShowSizeChange = (page , size) => {
-        const { query } = this.props.documents;
+    onShowSizeChange = (page, size) => {
+        const {query} = this.props.documents;
 
         if (query.length !== 0) {
             this.props.fetchDocuments({query, page, size});
         } else {
-            this.props.fetchDocumentsOnStart({ page, size });
+            this.props.fetchDocumentsOnStart({page, size});
         }
         window.scrollTo(0, 0);
-    }
+    };
 
     render() {
-        const { documents } = this.props;
-        const pageSizeOptions = ['10', '20', '30', '40'];
+        const {documents, push} = this.props;
+        const pageSizeOptions = ['5', '10', '20', '30', '40'];
+        if (documents.loading === false && documents.total === 0)
+            return <Empty
+                description={<div>
+                    Доументы не найдены.
+                    <br/>
+                    Измените запрос или <a onClick={() => push("/api")}>добавьте новые</a> документы
+                </div>}
+                image="/img/notFound.png"
+            />;
+        let data = new Array(documents.items.length || documents.size).fill(1);
         return (
             <div className="homePage">
-                {documents.items.length !== 0 && documents.items.map((item) => (
-                    <div className="searchItem" key={item.id}>
-                        <Card>
+                {data.map((x, i) => {
+                    const item = documents.items[i];
+                    return <div className="searchItem" key={i}>
+                        <Card loading={documents.loading}>
                             <Dotdotdot clamp={1}>
-                                <Link to={`/item/${item.id}`}>{item.title}</Link>
+                                <Link to={`/item/${item && item.id}`}>{item && item.title}</Link>
                             </Dotdotdot>
-                            <Dotdotdot clamp={3}><p>{item.text}</p></Dotdotdot>
-                            <p>{item.date}</p>
+                            <Dotdotdot clamp={3}><p>{item && item.text}</p></Dotdotdot>
+                            <p>{item && item.date}</p>
                         </Card>
-                    </div>
-                ))}
-                <Pagination 
+                    </div>;
+                })}
+                <Pagination
                     current={documents.page}
                     total={documents.total}
                     pageSize={documents.size}
@@ -59,3 +72,5 @@ export default class Home extends Component {
         )
     }
 }
+
+export default connect(null, {push})(Home);

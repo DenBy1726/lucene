@@ -112,6 +112,7 @@ export {default as DatabaseFill} from '@ant-design/icons/lib/fill/DatabaseFill';
 export {default as ApiOutline} from '@ant-design/icons/lib/outline/ApiOutline';
 export {default as ApiFill} from '@ant-design/icons/lib/fill/ApiFill';
 export {default as ApiTwoTone} from '@ant-design/icons/lib/twotone/ApiTwoTone';
+export {default as SearchOutline} from '@ant-design/icons/lib/outline/SearchOutline';
 
 // export {default as AccountBookFill} from "@ant-design/icons/lib/fill/AccountBookFill";
 // export {default as AlertFill} from '@ant-design/icons/lib/fill/AlertFill';
@@ -643,7 +644,7 @@ export {default as ApiTwoTone} from '@ant-design/icons/lib/twotone/ApiTwoTone';
 // export {default as RollbackOutline} from '@ant-design/icons/lib/outline/RollbackOutline';
 // export {default as SafetyOutline} from '@ant-design/icons/lib/outline/SafetyOutline';
 // export {default as ScissorOutline} from '@ant-design/icons/lib/outline/ScissorOutline';
-// export {default as SearchOutline} from '@ant-design/icons/lib/outline/SearchOutline';
+
 // export {default as SelectOutline} from '@ant-design/icons/lib/outline/SelectOutline';
 // export {default as ShakeOutline} from '@ant-design/icons/lib/outline/ShakeOutline';
 // export {default as ShareAltOutline} from '@ant-design/icons/lib/outline/ShareAltOutline';

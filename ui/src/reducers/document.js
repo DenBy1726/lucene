@@ -35,7 +35,7 @@ import {
           items: data.content,
           size: data.size,
           total: data.totalElements,
-          page: data.number,
+          page: data.number + 1,
           query: data.query || ''
         };
       case FETCH_DOCUMENTS_FAIL:

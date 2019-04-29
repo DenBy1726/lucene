@@ -56,7 +56,6 @@ class Navbar extends Component {
                             onChange={this.handleChangeSearchLine}
                             placeholder="Поищи тут что-нибудь"
                             onSearch={value => this.handleSearch(value)}
-                            style={{ width: 300 }}
                         />
                     </div>
                     <div className="leftMenu">

@@ -21,6 +21,7 @@ module.exports = merge(common, {
         inline: true,
         port: 3000,
         hot: true,
+        disableHostCheck: true,   // That solved it
         historyApiFallback: true,
         compress: true,
         proxy: {
